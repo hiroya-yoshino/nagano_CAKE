@@ -34,7 +34,7 @@ class Admin::ItemsController < ApplicationController
     end
   end
 
-  before_action :set_genres, only: [:new, :create, :update]
+  before_action :set_genres, only: [:new, :create, :update, :edit]
 
   private
 
