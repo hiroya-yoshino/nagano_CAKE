@@ -1,0 +1,75 @@
+<div class="container">
+  <div class="row">
+    <% @customer.last_name %><% @customer.first_name %>さんの会員詳細
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      会員ID
+    </div>
+    <div class="col-md-7">
+      <% @customer.id %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      氏名
+    </div>
+    <div class="col-md-7">
+      <% @customer.last_name %>
+      <% " " %>
+      <% @customer.first_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      フリガナ
+    </div>
+    　<% @customer.last_name_kana %>
+      <% " " %>
+      <% @customer.first_name_kana %>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      郵便番号
+    </div>
+    <div class="col-md-7">
+      <% @customer.postal_code %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      住所
+    </div>
+    <div class="col-md-7">
+      <% @customer.address %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      電話番号
+    </div>
+    <div class="col-md-7">
+      <% @customer.telephone_number %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      メールアドレス
+    </div>
+    <div class="col-md-7">
+      <% @customer.email %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      会員ステータ
+    </div>
+    <div class="col-md-7">
+      <% if @customer.is_active %>
+        <strong>有効</strong>
+      <% else %>
+        <strong>退会</strong>
+      <% end %>
+    </div>
+  </div>
+</div>
