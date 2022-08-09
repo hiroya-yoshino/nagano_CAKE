@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    注文履歴詳細
+  </div>
+  <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      購入者
+    </div>
+    <div class="col-md-7">
+      <% f.customer.last_name %><% f.customer.first_name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      注文日
+    </div>
+    <div class="col-md-7">
+      <% f.created_at %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      配送先
+    </div>
+    <div class="col-md-7">
+      〒<% f.postal_code %><% f.address %></br>
+      <% f.name %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      支払方法
+    </div>
+    <div class="col-md-7">
+      <% f.payment_method %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-3 mx-5">
+      注文ステータス
+    </div>
+    <div class="col-md-7">
+      <%= f.collection_select(:order_id, f, :id, :status) %>
+      <%= f.submit '更新', class:"btn btn-success" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="row">
+    <div class="col-md-7 mx-5">
+      <%= form_with model: @order_detail, url: admin_order_detail_path(@order_detail.id), method: :patch do |f| %>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>商品名</th>
+              <th>単価（税込）</th>
+              <th>数量</th>
+              <th>小計</th>
+              <th>製作ステータス</th>
+              <th></th>
+            </tr>
+          </thead>
+          <% f.each do |f| %>
+            <tr>
+              <td><p><% f.item_id.name %></p></td>
+              <td><p><% f.price %></p></td>
+              <td><p><% f.amount %></p></td>
+              <td><p><% f.price %>*<% f.amount %></p></td>
+              <td><p><%= f.collection_select(:order_detail_id, f, :id, :is_production) %></p></td>
+              <td><%= f.submit '更新', class:"btn btn-success" %></td>
+            </tr>
+      　   <% end %>
+        </table>
+      <% end %>
+    </div>
+    <div class="col-md-5">
+      
+    </div>
+  </div>
+</div>
