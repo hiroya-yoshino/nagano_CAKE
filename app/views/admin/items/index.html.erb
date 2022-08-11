@@ -1,14 +1,16 @@
 <div class="container">
-    <div class="row">
-      <p class="text-left bg-secondary text-dark px-3" style="--bs-bg-opacity: .25;">商品一覧</p>
-      
-      <%= link_to "新規登録", new_admin_item_path %>
+    <div class="row mt-3 mx-5">
+      <p class="h5 text-left bg-light text-dark px-3">商品一覧</p>
+
+      <%= link_to new_admin_item_path, class:"ml-auto" do %>
+      <i class="fas fa-plus fa-2x" style="color: gray"></i>
+      <% end %>
     </div>
-  
+
   <div class="row mx-5">
     <table class="table">
         <thead>
-          <tr>
+          <tr class="bg-light">
             <th>商品ID</th>
             <th>商品名</th>
             <th>税抜価格</th>
@@ -18,13 +20,13 @@
         </thead>
         <% @items.each do |item| %>
         <tr>
-          <td><p><% item.id %></p></td>
-          <td><%= link_to item.name, admin_item_path(item.id) %></td>
+          <td><p><%= item.id %></p></td>
+          <td><u><%= link_to item.name, admin_item_path(item.id), class:"text-dark" %></u></td>
           <td><p><%= item.price %></p></td>
           <td><p><%= item.genre.name %></p></td>
           <td>
             <% if item.is_active %>
-              <p>販売中</p>
+              <strong class="text-success">販売中</strong>
             <% else %>
               <p>販売停止中</p>
             <% end %>
