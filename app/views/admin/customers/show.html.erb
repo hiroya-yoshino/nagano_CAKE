@@ -1,6 +1,8 @@
 <div class="container">
   <div class="row">
-    <% @customer.last_name %><% @customer.first_name %>さんの会員詳細
+    <p class="h5 text-left bg-light text-dark px-3 my-3 ml-5">
+      <% @customer.last_name %><% @customer.first_name %>さんの会員詳細
+    </p>
   </div>
   <div class="row">
     <div class="col-md-3 mx-5">
@@ -62,14 +64,16 @@
   </div>
   <div class="row">
     <div class="col-md-3 mx-5">
-      会員ステータ
+      会員ステータス
     </div>
     <div class="col-md-7">
       <% if @customer.is_active %>
-        <strong>有効</strong>
+        <strong class="text-success">有効</strong>
       <% else %>
         <strong>退会</strong>
       <% end %>
     </div>
   </div>
+  
+  
 </div>

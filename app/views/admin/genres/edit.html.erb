@@ -1,11 +1,14 @@
-<h1>ジャンル編集</h1>
-
 <div class="container">
   <div class="row">
-    ジャンル名
-    <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
-      <%= f.text_field :name, autofocus: true, placeholder:"name" %>
-      <%= f.submit '変更を保存', class:"btn btn-success" %>
-    <% end %>
+      <p class="h5 text-left bg-light text-dark px-3 my-3 ml-5">ジャンル編集</p>
   </div>
+
+    <div class="col-11 mt-3">
+      <div class="row">
+        <%= form_with model: @genre, url: admin_genre_path, method: :patch do |f| %>
+    <strong class="small mr-5">ジャンル名</strong>
+    <%= f.text_field :name, autocomplete: "name" , placeholder: "ジャンル名", class:"mr-5" %>
+      <%= f.submit '変更を保存', class:"btn btn-success"%>
+  </div>
+  <% end %>
 </div>

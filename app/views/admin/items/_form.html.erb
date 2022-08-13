@@ -1,0 +1,47 @@
+<div class="col-md-9 col-lg-7 mx-auto">
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">商品画像</div>
+      <div class="col-sm-8 col-lg-8">
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+    </div>
+
+
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">商品名</div>
+      <div class="col-sm-7 col-lg-8">
+        <%= f.text_field :name, size: "25x1", placeholder: "商品名" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">商品説明</div>
+      <div class="col-sm-7 col-lg-8">
+        <%= f.text_area :introduction, size: "25x5", placeholder: "ここに説明文を記述します" %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">ジャンル</div>
+      <div class="col-sm-7 col-lg-8 mr-auto">
+        <%= f.collection_select(:genre_id, genres, :id, :name) %>
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">税抜価格</div>
+      <div class="col-sm-7 col-lg-8 mr-auto">
+        <%= f.text_field :price, size: "25x1", placeholder: "1000" %>円
+      </div>
+    </div>
+
+    <div class="row form-group">
+      <div class="col-sm-4 col-lg-4">販売ステータス</div>
+      <div class="col-sm-7 col-lg-8 mr-auto">
+        <%= f.radio_button :is_active, 'true' %>
+    　   <%= f.label :is_active, '販売中', value: true %>
+    　   <%= f.radio_button :is_active, 'false' %>
+        <%= f.label :is_active, '販売停止中', value: false %>
+      </div>
+    </div>
+    </div>
