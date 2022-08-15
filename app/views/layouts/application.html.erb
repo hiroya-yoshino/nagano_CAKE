@@ -48,6 +48,12 @@
           ログアウト
         <% end %>
       </li>
+    <% elsif customer_signed_in? %>
+      <li class="nav-item border rounded mr-4">
+        <%= link_to destroy_customer_session_path, method: :delete, class:"nav-link button text-dark" do %>
+          ログアウト
+        <% end %>
+      </li>
     <% else %>
     <li class="nav-item border rounded mr-4">
         <%= link_to about_path, class:"nav-link button text-dark" do %>
