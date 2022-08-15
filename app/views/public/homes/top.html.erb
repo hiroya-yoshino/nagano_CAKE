@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/nagano_CAKE/app/assets/stylesheets/public/homes.scss">
+</head>
+
+<div class="container">
+  <div class="row my-5 mx-2">
+    <div class="col-md-8 col-lg-10">
+      <div class="row">
+        <div class="top_img">
+          <p>
+            ようこそ、ながのCAKEへ！</br>
+            このサイトは、ケーキ販売のECサイトになります。</br>
+            会員でない方も商品の閲覧はできますが、</br>
+            購入には会員登録が必要になります。
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <h4>新着商品</h4></br>
+      </div>
+      <div class="row">
+        <% @items.each do |item| %>
+        <div class="col-md-3 col-lg-3">
+          <%= image_tag item.image, size: "180x110" %>
+          <%= item.name %></br>
+          ¥<%= item.price*1.1.round %>
+        </div>
+        <% end %>
+      </div>
+      <div class="row">
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

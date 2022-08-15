@@ -33,7 +33,7 @@
         <% end %>
       </li>
       <li class="nav-item border rounded mr-4">
-        <%= link_to root_path, class:"nav-link button text-dark" do %>
+        <%= link_to admin_path, class:"nav-link button text-dark" do %>
           注文履歴一覧
         <% end %>
       </li>
@@ -66,5 +66,14 @@
     </nav>
   </header>
   <%= yield %>
+  <footer class="mt-5 border-top border-dark">
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto">
+            <p> </p>
+          </div>
+        </div>
+      </div>
+    </footer>
 </body>
 </html>
