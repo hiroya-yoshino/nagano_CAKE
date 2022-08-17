@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="row">
+      <p class="h5 text-left bg-light text-dark px-3 my-3 ml-5">ジャンル一覧・追加</p>
+  </div>
+
+  <%= form_with model: @customer, url: public_customer_path(@customer.id), method: :patch do |f| %>
+
+  <div class="col-lg-11 mx-auto">
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">名前</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :last_name, autofocus: true %>
+    </div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :first_name %>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">フリガナ</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :last_name_kana %>
+    </div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :first_name_kana %>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">郵便番号</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :postal_code %>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">住所</div>
+    <div class="col-sm-8 col-lg-8 ">
+      <%= f.text_field :address, style: "width:100%"%>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">電話番号</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :telephone_number %>
+    </div>
+  </div>
+
+  <div class="row form-group">
+    <div class="col-sm-3 col-lg-3">メールアドレス</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.email_field :email %>
+    </div>
+  </div>
+</div>
+
+  <div class="col-6 mx-auto">
+    <div class="row form-group">
+      <%= f.submit '編集内容の保存', class:"btn btn-success" %>
+    </div>
+  </div>
+
+<% end %>
+</div>
