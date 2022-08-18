@@ -16,6 +16,13 @@ class Public::CustomersController < ApplicationController
       render :edit
     end
   end
+  
+  def unsubscribe
+    @customer = current_customer
+  end
+  
+  def withdraw
+  end
 
    private
 

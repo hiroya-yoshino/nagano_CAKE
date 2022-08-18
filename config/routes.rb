@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'about' => 'public/homes#about'
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/information/edit' => 'public/customers#edit'
+  get 'customers/unsubscribe' => 'public/customers#unsubscribe'
+  patch 'customers/withdraw' => 'public/customers#withdraw'
 
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
