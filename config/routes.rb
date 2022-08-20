@@ -28,7 +28,8 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :customers, only: [:edit, :update, :unsubscribe, :withdraw]
+    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
 end
