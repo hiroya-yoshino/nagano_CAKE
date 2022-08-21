@@ -12,13 +12,6 @@ Rails.application.routes.draw do
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
-  # public/addresses
-  get 'addresses' => 'public/addresses#index'
-  post 'addresses' => 'public/addresses#create'
-  get 'addresses/:id/edit' => 'public/addresses#edit'
-  patch 'addresses/:id' => 'public/addresses#update'
-  delete 'addresses/:id' => 'public/addresses#destroy'
-
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -37,7 +30,9 @@ Rails.application.routes.draw do
     resources :order_details, only: [:update]
   end
 
-  namespace :public do
+  scope module: :public do
+    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
+    resources :items, only: [:index, :show]
   end
 
 end
