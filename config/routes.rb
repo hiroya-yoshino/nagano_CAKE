@@ -4,10 +4,20 @@ Rails.application.routes.draw do
   root to: "public/homes#top"
   get 'admin' => 'admin/homes#top'
   get 'about' => 'public/homes#about'
+
+  # public/customer
   get 'customers/my_page' => 'public/customers#show'
   get 'customers/information/edit' => 'public/customers#edit'
+  patch 'customers/information' => 'public/customers#update'
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
+
+  # public/addresses
+  get 'addresses' => 'public/addresses#index'
+  post 'addresses' => 'public/addresses#create'
+  get 'addresses/:id/edit' => 'public/addresses#edit'
+  patch 'addresses/:id' => 'public/addresses#update'
+  delete 'addresses/:id' => 'public/addresses#destroy'
 
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -28,8 +38,6 @@ Rails.application.routes.draw do
   end
 
   namespace :public do
-    resources :customers, only: [:show, :edit, :update, :unsubscribe, :withdraw]
-    resources :addresses, only: [:index, :edit, :create, :update, :destroy]
   end
 
 end

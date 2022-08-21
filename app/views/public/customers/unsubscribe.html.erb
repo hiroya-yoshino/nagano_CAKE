@@ -15,9 +15,7 @@
     <%= link_to '退会しない', customers_my_page_path, class:"btn btn-primary" %>
   </div>
   <div class="col-3 ml-5 mr-auto">
-    <%= form_with model: @customer, url: public_customer_path(@customer.id), method: :patch do |f| %>
-    <%= link_to "退会する", customers_unsubscribe_path, class:"btn btn-danger" %>
-    <% end %>
+    <%= link_to "退会する", customers_withdraw_path, method: :patch, class:"btn btn-danger" %>
   </div>
 </div>
 </div>
