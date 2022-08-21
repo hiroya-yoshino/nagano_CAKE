@@ -3,7 +3,7 @@
     <div class="col-md-8 col-lg-10">
       <div class="row">
         <h4>商品一覧</h4>
-        <p>(全<% @items.count %>件)</p>
+        <p>(全<%= @items.count %>件)</p>
       </div>
       <div class="row">
         <% @items.each do |item| %>
@@ -13,6 +13,7 @@
           ¥<%= item.price*1.1.round %>
         </div>
         <% end %>
+        <div class="mx-auto mt-5"><%= paginate @items %></div>
       </div>
     </div>
 
