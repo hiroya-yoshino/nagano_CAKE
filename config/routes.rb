@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get 'customers/unsubscribe' => 'public/customers#unsubscribe'
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
+  # public/cart_item
+  delete 'cart_items/destroy_all' => 'public/customers#destroy_all'
+
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -33,6 +36,7 @@ Rails.application.routes.draw do
   scope module: :public do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
+    resources :cart_items, only: [:index, :update, :destroy, :create]
   end
 
 end

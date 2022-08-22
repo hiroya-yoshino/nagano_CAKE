@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row mt-4">
+    <div class="col-md-3 col-lg-4 text-right">
+      <%= image_tag @item.get_image %>
+    </div>
+
+    <div class="col-md-5 col-lg-6 pl-5">
+      <div class="row">
+        <strong class="h3 font-weight-bold"><%= @item.name %></strong>
+      </div>
+      <div class="row mb-5">
+        <p class="h5"><%= @item.introduction %></p>
+      </div>
+      <div class="row">
+        <strong class="h4 font-weight-bold">
+          ¥<%= @item.price*1.1.round %>
+        </strong>
+        <p>(税込)</p>
+      </div>
+      <div class="row">
+
+      </div>
+  </div>
+  </div>
+
+</div>
