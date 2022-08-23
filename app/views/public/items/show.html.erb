@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row mt-4">
     <div class="col-md-3 col-lg-4 text-right">
-      <%= image_tag @item.get_image %>
+      <%= image_tag @item.get_image(200,150) %>
     </div>
 
     <div class="col-md-5 col-lg-6 pl-5">
@@ -13,12 +13,16 @@
       </div>
       <div class="row">
         <strong class="h4 font-weight-bold">
-          ¥<%= @item.price*1.1.round %>
+          ¥<%= @item.with_tax_price.to_s(:delimited) %>
         </strong>
         <p>(税込)</p>
       </div>
-      <div class="row">
-
+      <div class="row mt-2">
+        <%= form_with model: @cart_item, url: cart_items_path, method: :post do |f| %>
+        <%= f.hidden_field :item_id, :value => @item.id %>
+        <%= f.select :amount, *[1..10], include_blank: "個数選択" %>
+        <%= f.submit 'カートに入れる', class:"btn btn-success ml-5" %>
+        <% end %>
       </div>
   </div>
   </div>

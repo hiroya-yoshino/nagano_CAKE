@@ -4,7 +4,7 @@
   </div>
   <div class="row mt-4">
     <div class="col-md-5 col-lg-4 pl-5">
-      <%= image_tag @item.get_image %>
+      <%= image_tag @item.get_image(200,150) %>
     </div>
 
     <div class="col-md-7 col-lg-6">
@@ -39,8 +39,8 @@
         </div>
         <div class="col-md-8 col-lg-7 pt-2">
           <strong>
-          <%= @item.price*1.1.round %>
-          (<%= @item.price %>)
+          <%= @item..with_tax_price.to_s(:delimited) %>
+          (<%= @item.price.to_s(:delimited) %>)
           円
           </strong>
         </div>

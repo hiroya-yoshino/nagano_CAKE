@@ -22,7 +22,7 @@
         <tr>
           <td><p><%= item.id %></p></td>
           <td><u><%= link_to item.name, admin_item_path(item.id), class:"text-dark" %></u></td>
-          <td><p><%= item.price %></p></td>
+          <td><p><%= item.price.to_s(:delimited) %></p></td>
           <td><p><%= item.genre.name %></p></td>
           <td>
             <% if item.is_active %>

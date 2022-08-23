@@ -9,10 +9,10 @@
         <% @items.each do |item| %>
         <div class="col-md-3 col-lg-3">
           <%= link_to item_path(item.id) do %>
-          <%= image_tag item.image, size: "180x110" %>
+          <%= image_tag item.get_image(180,110) %>
           <% end %>
           <%= item.name %></br>
-          ¥<%= item.price*1.1.round %>
+          ¥<%= item.with_tax_price.to_s(:delimited) %>
         </div>
         <% end %>
         <div class="mx-auto mt-5"><%= paginate @items %></div>
