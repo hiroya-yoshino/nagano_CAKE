@@ -13,7 +13,11 @@ Rails.application.routes.draw do
   patch 'customers/withdraw' => 'public/customers#withdraw'
 
   # public/cart_item
-  delete 'cart_items/destroy_all' => 'public/customers#destroy_all'
+  delete 'cart_items/destroy_all' => 'public/cart_items#destroy_all'
+
+  # public/order
+  post 'orders/confirm' => 'public/orders#confirm'
+  get 'orders/complete' => 'public/orders#complete'
 
   devise_for :customers, skip: [:passwords], controllers: {
     registrations: "public/registrations",
@@ -37,6 +41,7 @@ Rails.application.routes.draw do
     resources :addresses, only: [:index, :edit, :create, :update, :destroy]
     resources :items, only: [:index, :show]
     resources :cart_items, only: [:index, :update, :destroy, :create]
+    resources :orders, only: [:new, :create, :index, :show]
   end
 
 end
