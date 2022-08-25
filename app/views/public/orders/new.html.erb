@@ -8,19 +8,64 @@
     <strong class="h5 font-weight-bold">支払方法</strong>
   </div>
   <div class="row">
-    <%= f.radio_button :payment_method, '0', class: "ml-3 h5" %>
-    <%= f.label :payment_method, 'クレジットカード', value: 0, class: "ml-2 h5" %>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0), class: "ml-3 h5" %>
+    <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card], class: "ml-2 h5" %>
   </div>
   <div class="row">
-    <%= f.radio_button :payment_method, '1', class: "ml-3 h5" %>
-    <%= f.label :payment_method, '銀行振込', value: 1, class: "ml-2 h5" %>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(1), class: "ml-3 h5" %>
+    <%= f.label :payment_method, Order.payment_methods_i18n[:transfer], class: "ml-3 h5" %>
   </div>
   <div class="row">
-    <strong class="h5 font-weight-bold">お届け先</strong>
+    <strong class="h5 font-weight-bold mt-3">お届け先</strong>
   </div>
+  <div class="row ml-2">
+    <%= f.radio_button :selected_button, 'my_address', class: "ml-3 h5" %>
+    <%= f.label :selected_button, 'ご自身の住所', value: 'my_address', class: "ml-2 h5"%>
+  </div>
+
+  <div class="row h5 ml-5 pl-2">
+      〒<%= @customer.postal_code %>
+      <%= @customer.address %></br>
+      <%= @customer.last_name+@customer.first_name %>
+  </div>
+
+  <div class="row mt-3 ml-2">
+    <%= f.radio_button :selected_button, 'registed_address', class: "ml-3 h5" %>
+    <%= f.label :selected_button, '登録済住所から選択', value: 'registed_address', class: "ml-2 h5"%>
+  </div>
+
+  <div class="row h5 ml-5 pl-2">
+    <%= f.collection_select(:address_id, Address.all, :id, :address_display) %>
+  </div>
+
+  <div class="row mt-3 ml-2">
+    <%= f.radio_button :selected_button, 'new_address', class: "ml-3 h5" %>
+    <%= f.label :selected_button, '新しいお届け先', value: 'new_address', class: "ml-2 h5"%>
+  </div>
+    <div class="row form-group ml-5 pl-2">
+    <div class="col-sm-3 col-lg-3">郵便番号(ハイフンなし)</div>
+    <div class="col-sm-4 col-lg-4">
+      <%= f.text_field :postal_code , placeholder: "0000000"%>
+    </div>
+  </div>
+
+  <div class="row form-group ml-5 pl-2">
+    <div class="col-sm-3 col-lg-3">住所</div>
+    <div class="col-sm-8 col-lg-8 ">
+      <%= f.text_field :address, style: "width:60%", placeholder: "東京都渋谷区代々木神園町0-0"%>
+    </div>
+  </div>
+
+  <div class="row form-group ml-5 pl-2">
+    <div class="col-sm-3 col-lg-3">宛名</div>
+    <div class="col-sm-8 col-lg-8 ">
+      <%= f.text_field :name, placeholder: "令和道子" %>
+    </div>
+  </div>
+
   <div class="row">
-    <%= f.radio_button :payment_method, '1', class: "ml-3 h5" %>
-    <%= f.label :payment_method, '銀行振込', value: 1, class: "ml-2 h5" %>
+    <%= f.submit "確認画面に進む", class:"btn btn-primary mx-auto" %>
   </div>
+
   <% end %>
 </div>
