@@ -3,7 +3,7 @@
     <p class="h5 text-left bg-light text-dark px-3 ml-5">注文情報入力</p>
   </div>
 
-  <%= form_with model: @order, url: orders_confirm_path, method: :post do |f| %>
+  <%= form_with model: @order, url: orders_confirm_path, method: :post, local: true do |f| %>
   <div class="row">
     <strong class="h5 font-weight-bold">支払方法</strong>
   </div>
@@ -15,14 +15,15 @@
     <%= f.radio_button :payment_method, Order.payment_methods.key(1), class: "ml-3 h5" %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:transfer], class: "ml-3 h5" %>
   </div>
+
   <div class="row">
     <strong class="h5 font-weight-bold mt-3">お届け先</strong>
   </div>
+
   <div class="row ml-2">
     <%= f.radio_button :selected_button, 'my_address', class: "ml-3 h5" %>
     <%= f.label :selected_button, 'ご自身の住所', value: 'my_address', class: "ml-2 h5"%>
   </div>
-
   <div class="row h5 ml-5 pl-2">
       〒<%= @customer.postal_code %>
       <%= @customer.address %></br>
@@ -33,7 +34,6 @@
     <%= f.radio_button :selected_button, 'registed_address', class: "ml-3 h5" %>
     <%= f.label :selected_button, '登録済住所から選択', value: 'registed_address', class: "ml-2 h5"%>
   </div>
-
   <div class="row h5 ml-5 pl-2">
     <%= f.collection_select(:address_id, Address.all, :id, :address_display) %>
   </div>

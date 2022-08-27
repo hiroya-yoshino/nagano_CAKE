@@ -23,6 +23,8 @@ class Public::CartItemsController < ApplicationController
     end
   end
 
+
+
   def destroy
     cart_item = CartItem.find(params[:id])
     cart_item.destroy
