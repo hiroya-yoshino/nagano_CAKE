@@ -15,10 +15,10 @@
       </thead>
       <% @orders.each do |order| %>
       <tr>
-        <td><p><% link_to order.create_at, admin_order_path(order.id) %></p></td>
-        <td><p><% order.customer.name %></p></td>
-        <td><p><% order.order_detail.amount %></p></td>
-        <td><p><% order.status %></p></td>
+        <td><u><%= link_to order.created_at.to_s(:datetime_jp), admin_order_path(order.id), class:"text-dark" %></u></td>
+        <td><p><%= order.name %></p></td>
+        <td><p><%= order.order_details.sum(:amount) %></p></td>
+        <td><p><%= Order.atatus_i18n[order.atatus] %></p></td>
       </tr>
       <% end %>
       <%= paginate @orders %>

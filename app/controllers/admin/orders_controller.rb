@@ -2,7 +2,7 @@ class Admin::OrdersController < ApplicationController
   before_action :authenticate_admin!
   def show
     @order = Order.find(params[:id])
-    @order_detail = Order_detail.find(@order.id)
+    @order_detail = OrderDetail.find(@order.id)
     @total = 0
   end
 

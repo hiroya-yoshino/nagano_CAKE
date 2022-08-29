@@ -4,8 +4,8 @@
   </div>
 
   <div class="row">
-    <strong class="mr-5">登録情報</strong>
-    <div class="text-center">
+    <strong class="col-md-2 font-weight-bold h5">登録情報</strong>
+    <div class="col-md-4 ml-0">
       <%= link_to '編集する', customers_information_edit_path, class:"btn btn-success py-0" %>
     </div>
   </div>
@@ -41,16 +41,18 @@
     </div>
   </div>
 
-  <div class="row mb-2">
-    <strong class="mr-5">配送先</strong>
-    <div class="text-center">
+  <div class="row mb-3 mt-2">
+    <strong class="col-md-2 font-weight-bold h5">配送先</strong>
+    <div class="col-md-4 ml-0">
       <%= link_to '一覧を見る', addresses_path, method: :get, class:"btn btn-primary py-0" %>
     </div>
   </div>
-  </div>
 
   <div class="row mb-2">
-    <strong>注文履歴</strong>
+    <strong class="col-md-2 font-weight-bold h5">注文履歴</strong>
+    <div class="col-md-4 ml-0">
+      <%= link_to '一覧を見る', orders_path, method: :get, class:"btn btn-primary py-0" %>
+    </div>
   </div>
 
 </div>

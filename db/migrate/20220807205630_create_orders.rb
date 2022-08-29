@@ -9,7 +9,7 @@ class CreateOrders < ActiveRecord::Migration[6.1]
       t.integer :postage
       t.integer :total_payment
       t.integer :atatus, null: false, default: 0
-      
+
       t.timestamps
     end
   end

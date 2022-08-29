@@ -4,8 +4,8 @@
         payment_method:
           credit_card: "クレジットカード"
           transfer: "銀行振込"
-        
-        status:
+
+        atatus:
           wait: "入金待ち"
           confirm: "入金確認"
           continue: "製作中"
