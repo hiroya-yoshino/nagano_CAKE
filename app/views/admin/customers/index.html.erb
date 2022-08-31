@@ -16,7 +16,7 @@
       <% @customers.each do |customer| %>
       <tr>
         <td><p><%= customer.id %></p></td>
-        <td><u><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id) %></u></td>
+        <td><u><%= link_to customer.last_name + customer.first_name, admin_customer_path(customer.id), class:"text-dark" %></u></td>
         <td><p><%= customer.email %></p></td>
         <td>
           <% if customer.is_active %>
@@ -28,6 +28,9 @@
       </tr>
       <% end %>
     </table>
+    <div class="row mx-auto">
+        <%= paginate @customers %>
+      </div>
   </div>
   </div>
 </div>

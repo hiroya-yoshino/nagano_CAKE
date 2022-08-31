@@ -1,5 +1,5 @@
 class Public::CustomersController < ApplicationController
-  
+
   def show
     @customer = current_customer
   end
@@ -9,7 +9,7 @@ class Public::CustomersController < ApplicationController
   end
 
   def update
-    @customer = Customer.find(params[:id])
+    @customer = current_customer
     if @customer.update(customer_params)
       redirect_to customers_my_page_path
     else
@@ -32,6 +32,7 @@ class Public::CustomersController < ApplicationController
 
   def customer_params
     params.require(:customer).permit(
+      :id,
       :last_name,
       :first_name,
       :last_name_kana,

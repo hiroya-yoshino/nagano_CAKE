@@ -1,76 +1,72 @@
 <div class="container">
   <div class="row">
     <p class="h5 text-left bg-light text-dark px-3 my-3 ml-5">
-      <% @customer.last_name %><% @customer.first_name %>さんの会員詳細
+      <%= @customer.full_name %>さんの会員詳細
     </p>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       会員ID
     </div>
-    <div class="col-md-7">
-      <% @customer.id %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.id %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       氏名
     </div>
-    <div class="col-md-7">
-      <% @customer.last_name %>
-      <% " " %>
-      <% @customer.first_name %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.full_name %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       フリガナ
     </div>
-    　<% @customer.last_name_kana %>
-      <% " " %>
-      <% @customer.first_name_kana %>
+    　<%= @customer.full_name_kana %>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       郵便番号
     </div>
-    <div class="col-md-7">
-      <% @customer.postal_code %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.postal_code %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       住所
     </div>
-    <div class="col-md-7">
-      <% @customer.address %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.address %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       電話番号
     </div>
-    <div class="col-md-7">
-      <% @customer.telephone_number %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.telephone_number %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       メールアドレス
     </div>
-    <div class="col-md-7">
-      <% @customer.email %>
+    <div class="col-md-7 mb-3">
+      <%= @customer.email %>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-3 mx-5">
+    <div class="col-md-2 ml-5 mb-3">
       会員ステータス
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7 mb-3">
       <% if @customer.is_active %>
-        <strong class="text-success">有効</strong>
-      <% else %>
         <strong>退会</strong>
+      <% else %>
+        <strong class="text-success">有効</strong>
       <% end %>
     </div>
   </div>
